@@ -10,6 +10,18 @@
 
 <h1>Lista de empleados</h1>
 
+<!--Buscador-->
+<form th:action="@{/employees/buscar}" method="get">
+
+    <label for="texto">Buscar empleado:</label>
+
+    <input type="text" id="texto" name="texto">
+
+    <button type="submit">Buscar</button>
+
+</form>
+
+
 <table border="1">
 
     <thead>
