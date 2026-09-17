@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Job</title>
+</head>
+
+<body>
+
+<h1>Registrar nuevo Job</h1>
+
+<form th:action="@{/jobs/guardar}" th:object="${job}" method="post">
+
+    <div>
+        <label for="jobId">ID del Job:</label>
+        <input type="text" id="jobId" th:field="*{jobId}" required>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="jobTitle">Título del Job:</label>
+        <input type="text" id="jobTitle" th:field="*{jobTitle}" required>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="minSalary">Salario mínimo:</label>
+        <input type="number" id="minSalary" th:field="*{minSalary}" step="0.01" required>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="maxSalary">Salario máximo:</label>
+        <input type="number" id="maxSalary" th:field="*{maxSalary}" step="0.01" required>
+    </div>
+
+    <br>
+
+    <button type="submit">Registrar Job</button>
+
+</form>
+
+</body>
+
+</html>

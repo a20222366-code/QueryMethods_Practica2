@@ -10,6 +10,12 @@
 
 <h1>Lista de empleados</h1>
 
+<!--Boton para agregar trabajo-->
+<a th:href="@{/jobs/nuevo}">
+    <button type="button">Registrar nuevo Job</button>
+</a>
+
+
 <!--Buscador-->
 <form th:action="@{/employees/buscar}" method="get">
 
