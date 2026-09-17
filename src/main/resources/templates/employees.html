@@ -40,6 +40,8 @@
         <th>Fecha de contratación</th>
         <th>Salario</th>
         <th>Comisión</th>
+        <!--Agregamos columna para editar-->
+        <th>Acciones</th>
     </tr>
     </thead>
 
@@ -55,6 +57,13 @@
         <td th:text="${employee.hireDate}"></td>
         <td th:text="${employee.salary}"></td>
         <td th:text="${employee.commissionPct}"></td>
+        <!-- Agregamos boton para editar -->
+        <td>
+            <a th:href="@{/employees/editar(id=${employee.employeeId})}">
+                Editar
+            </a>
+        </td>
+
 
     </tr>
 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar empleado</title>
+</head>
+
+<body>
+
+<h1>Editar empleado</h1>
+
+<form th:action="@{/employees/actualizar}"
+      th:object="${employee}"
+      method="post">
+
+    <input type="hidden" th:field="*{employeeId}">
+
+    <div>
+        <label for="firstName">Nombre:</label>
+        <input type="text"
+               id="firstName"
+               th:field="*{firstName}">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="lastName">Apellido:</label>
+        <input type="text"
+               id="lastName"
+               th:field="*{lastName}">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="email">Email:</label>
+        <input type="text"
+               id="email"
+               th:field="*{email}">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="phoneNumber">Teléfono:</label>
+        <input type="text"
+               id="phoneNumber"
+               th:field="*{phoneNumber}">
+    </div>
+
+
+    <br>
+
+    <div>
+        <label for="jobId">Job:</label>
+
+        <select id="jobId" th:field="*{jobId}">
+
+            <option th:each="job : ${jobs}"
+                    th:value="${job.jobId}"
+                    th:text="${job.jobTitle}">
+            </option>
+
+        </select>
+    </div>
+
+
+    <br>
+
+
+
+
+    <div>
+        <label for="hireDate">Fecha de contratación:</label>
+        <input type="date"
+               id="hireDate"
+               name="hireDate"
+               th:value="${#temporals.format(employee.hireDate, 'yyyy-MM-dd')}">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="salary">Salario:</label>
+        <input type="number"
+               id="salary"
+               th:field="*{salary}"
+               step="0.01">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="commissionPct">Comisión:</label>
+        <input type="number"
+               id="commissionPct"
+               th:field="*{commissionPct}"
+               step="0.01">
+    </div>
+
+    <br>
+
+    <button type="submit">Actualizar empleado</button>
+
+</form>
+
+</body>
+
+</html>
